@@ -23,7 +23,7 @@ cd coreos-kubernetes/single-node/
 ----
 vagrant box update
 ----
-- if you've got an error, such as: `failed generating SSL CA artifacts`, (link:https://github.com/coreos/coreos-kubernetes/issues/741["see issue"]) then:
+- if you've got an error, such as: `failed generating SSL CA artifacts`, (link:https://github.com/coreos/coreos-kubernetes/issues/741[see issue]) then:
 [source,fish]
 ----
 sudo ln -sf /usr/local/bin/openssl /opt/vagrant/embedded/bin/openssl
@@ -62,4 +62,4 @@ kubectl get nodes
 
 done.
 
-link:https://coreos.com/kubernetes/docs/latest/kubernetes-on-vagrant-single.html["read more"]
+link:https://coreos.com/kubernetes/docs/latest/kubernetes-on-vagrant-single.html[read more]
