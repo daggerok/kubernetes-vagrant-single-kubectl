@@ -23,6 +23,6 @@ minikube start
 # or simply:
 # echo (minikube service webapp --url)
 
-minikube dashboard
+# minikube dashboard
 minikube stop
 minicube delete
