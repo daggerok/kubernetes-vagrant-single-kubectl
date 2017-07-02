@@ -6,9 +6,9 @@
 
 this repo demonstrates how to bootstrap single-node kubernetes cluster using vagrant and setup kubectl - easy.
 
-==== download and install vagrant from HachiCorp home site
+- ==== download and install vagrant from HachiCorp home site
 
-==== download and install kubectl:
+- ==== download and install kubectl:
 [source,fish]
 ----
 # osx:
@@ -17,7 +17,7 @@ chmod +x kubectl
 mv kubectl /usr/local/bin/kubectl
 ----
 
-==== clone coreos-kubernetes/single-node repo:
+- ==== clone coreos-kubernetes/single-node repo:
 
 [source,fish]
 ----
@@ -26,21 +26,21 @@ git clone https://github.com/coreos/coreos-kubernetes.git
 cd coreos-kubernetes/single-node/
 ----
 
-==== update vagrant:
+- ==== update vagrant:
 
 [source,fish]
 ----
 vagrant box update
 ----
 
-==== if you've got an error, such as: `failed generating SSL CA artifacts`, (link:https://github.com/coreos/coreos-kubernetes/issues/741[see issue]) then:
+- ==== if you've got an error, such as: `failed generating SSL CA artifacts`, (link:https://github.com/coreos/coreos-kubernetes/issues/741[see issue]) then:
 
 [source,fish]
 ----
 sudo ln -sf /usr/local/bin/openssl /opt/vagrant/embedded/bin/openssl
 ----
 
-==== bootstrap vagrant
+- ==== bootstrap vagrant
 
 [source,fish]
 ----
@@ -48,7 +48,7 @@ vagrant up
 ...
 ----
 
-==== config kubectl
+- ==== config kubectl
 
 [source,fish]
 ----
@@ -70,13 +70,13 @@ kubectl config set-context vagrant-single \
 kubectl config use-context vagrant-single
 ----
 
-==== use it
+- ==== use it
 
 [source,fish]
 ----
 kubectl get nodes
 ----
 
-done.
+- done.
 
 link:https://coreos.com/kubernetes/docs/latest/kubernetes-on-vagrant-single.html[read more]
