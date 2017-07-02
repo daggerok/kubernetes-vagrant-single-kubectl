@@ -9,16 +9,20 @@ minikube start
 # kubectl run webapp --image=nginx --port=80
 # kubectl get deployments
 
-# kubectl get nodes
-# NAME          STATUS    AGE       VERSION
-# 172.17.4.99   Ready     55m       v1.5.4+coreos.0
-# set -l host 172.17.4.99 
+# set -l host (minikube ip)
 
 # kubectl expose deployment webapp --target-port=80 --type=NodePort
 # kubectl get service webapp                                                                                                                                               01:24:03
 # NAME      CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-# webapp    10.3.0.231   <nodes>       80:32175/TCP   6m
-# set -l port 32175
+# webapp    10.0.0.58    <nodes>       80:30049/TCP   15s
+# set -l port 30049
 
 # http "$host:$port"
 # nginx respose...
+
+# or simply:
+# echo (minikube service webapp --url)
+
+minikube dashboard
+minikube stop
+minicube delete
