@@ -1,0 +1,55 @@
+= kubernetes-vagrant-single-kubectl
+
+bootstrap kubernetes single cluster using vagrant
+
+- download and install vagrant from HachiCorp home site
+- download and install kubectl:
+[source,fish]
+----
+# osx:
+curl -O https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/darwin/amd64/kubectl
+chmod +x kubectl
+mv kubectl /usr/local/bin/kubectl
+----
+- clone coreos-kubernetes/single-node repo:
+[source,fish]
+----
+cd /tmp
+git clone https://github.com/coreos/coreos-kubernetes.git
+cd coreos-kubernetes/single-node/
+----
+- update vagrant:
+[source,fish]
+----
+vagrant box update
+----
+- if you've got an error, such as: `failed generating SSL CA artifacts`, (link:https://github.com/coreos/coreos-kubernetes/issues/741["see issue"]) then:
+[source,fish]
+----
+sudo ln -sf /usr/local/bin/openssl /opt/vagrant/embedded/bin/openssl
+----
+- bootstrap vagrant
+[source,fish]
+----
+vagrant up
+...
+
+# use a custom KUBECONFIG
+export KUBECONFIG=(pwd)"/kubeconfig"
+kubectl config use-context vagrant-single
+
+# update the local-user kubeconfig
+kubectl config set-cluster vagrant-single-cluster --server=https://172.17.4.99:443 --certificate-authority=$PWD/ssl/ca.pem
+kubectl config set-credentials vagrant-single-admin \
+  --certificate-authority=$PWD/ssl/ca.pem \
+  --client-key=$PWD/ssl/admin-key.pem \
+  --client-certificate=$PWD/ssl/admin.pem
+kubectl config set-context vagrant-single --cluster=vagrant-single-cluster --user=vagrant-single-admin
+kubectl config use-context vagrant-single
+
+# check single node
+kubectl get nodes
+----
+
+done.
+
