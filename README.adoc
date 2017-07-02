@@ -53,8 +53,10 @@ kubectl config set-context vagrant-single \
   --cluster=vagrant-single-cluster \
   --user=vagrant-single-admin
 kubectl config use-context vagrant-single
-
-# check single node
+----
+- use it
+[source,fish]
+----
 kubectl get nodes
 ----
 
