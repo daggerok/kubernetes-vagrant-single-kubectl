@@ -33,7 +33,10 @@ sudo ln -sf /usr/local/bin/openssl /opt/vagrant/embedded/bin/openssl
 ----
 vagrant up
 ...
-
+----
+- config kubectl
+[source,fish]
+----
 # use a custom KUBECONFIG
 export KUBECONFIG=(pwd)"/kubeconfig"
 kubectl config use-context vagrant-single
