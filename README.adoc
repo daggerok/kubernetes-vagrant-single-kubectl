@@ -4,10 +4,11 @@
 
 === kubectl config
 
-this repo shows how to bootstrap single-node kubernetes cluster using vagrant with kubectk setup - easy.
+this repo demonstrates how to bootstrap single-node kubernetes cluster using vagrant and setup kubectl - easy.
 
-- download and install vagrant from HachiCorp home site
-- download and install kubectl:
+==== download and install vagrant from HachiCorp home site
+
+==== download and install kubectl:
 [source,fish]
 ----
 # osx:
@@ -15,30 +16,40 @@ curl -O https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/dar
 chmod +x kubectl
 mv kubectl /usr/local/bin/kubectl
 ----
-- clone coreos-kubernetes/single-node repo:
+
+==== clone coreos-kubernetes/single-node repo:
+
 [source,fish]
 ----
 cd /tmp
 git clone https://github.com/coreos/coreos-kubernetes.git
 cd coreos-kubernetes/single-node/
 ----
-- update vagrant:
+
+==== update vagrant:
+
 [source,fish]
 ----
 vagrant box update
 ----
-- if you've got an error, such as: `failed generating SSL CA artifacts`, (link:https://github.com/coreos/coreos-kubernetes/issues/741[see issue]) then:
+
+==== if you've got an error, such as: `failed generating SSL CA artifacts`, (link:https://github.com/coreos/coreos-kubernetes/issues/741[see issue]) then:
+
 [source,fish]
 ----
 sudo ln -sf /usr/local/bin/openssl /opt/vagrant/embedded/bin/openssl
 ----
-- bootstrap vagrant
+
+==== bootstrap vagrant
+
 [source,fish]
 ----
 vagrant up
 ...
 ----
-- config kubectl
+
+==== config kubectl
+
 [source,fish]
 ----
 # use a custom KUBECONFIG
@@ -58,7 +69,9 @@ kubectl config set-context vagrant-single \
   --user=vagrant-single-admin
 kubectl config use-context vagrant-single
 ----
-- use it
+
+==== use it
+
 [source,fish]
 ----
 kubectl get nodes
