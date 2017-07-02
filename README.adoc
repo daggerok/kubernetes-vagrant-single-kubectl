@@ -1,6 +1,6 @@
-= kubernetes-vagrant-single-kubectl
+= single-node kubernetes cluster using vagrant. kubectl config
 
-bootstrap kubernetes single cluster using vagrant
+this repo shows how to bootstrap single-node kubernetes cluster using vagrant with kubectk setup - easy.
 
 - download and install vagrant from HachiCorp home site
 - download and install kubectl:
