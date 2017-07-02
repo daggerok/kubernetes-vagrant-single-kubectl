@@ -75,6 +75,8 @@ kubectl config use-context vagrant-single
 [source,fish]
 ----
 kubectl get nodes
+...
+vagrant halt
 ----
 
 done.
