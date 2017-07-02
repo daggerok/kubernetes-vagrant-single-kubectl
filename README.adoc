@@ -62,3 +62,4 @@ kubectl get nodes
 
 done.
 
+link:https://coreos.com/kubernetes/docs/latest/kubernetes-on-vagrant-single.html["read more"]
