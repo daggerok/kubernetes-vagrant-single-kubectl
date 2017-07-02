@@ -1,8 +1,8 @@
 = single-node kubernetes cluster
 
-== vagrant
+== using vagrant
 
-=== kubectl config
+=== + kubectl config
 
 this repo demonstrates how to bootstrap single-node kubernetes cluster using vagrant and setup kubectl - easy.
 
